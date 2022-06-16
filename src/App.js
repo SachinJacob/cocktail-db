@@ -5,6 +5,7 @@ import About from "./About"
 import Navbar from "./Navbar"
 import Singlecocktails from "./Singlecocktails"
 import Error from "./Error"
+import Cart from './Cart.js'
 import "./css.css"
 const App = () => {
     return (
@@ -17,6 +18,8 @@ const App = () => {
                     <Route exact path='about' element={<About />}>
                     </Route>
                     <Route exact path='cocktails/:id' element={<Singlecocktails />}>
+                    </Route>
+                    <Route exact path='cart' element={<Cart />}>
                     </Route>
                     <Route exact path='*' element={<Error />}>
                     </Route>
