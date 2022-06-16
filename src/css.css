@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #1ED760;
+  width: 220px;
+  height: 220px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card:hover {
+  box-shadow: 0 4px 4px 0 rgba(30, 215, 96), 0 4px 5px 0 rgba(30, 215, 96);
+}
+
+#color {
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+}
+
+body {
+  background-color: #191414;
+}
+
+#center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.navitem {
+  font-family: 'Oswald', sans-serif;
+  color: #1ED760;
+}
+
+.navitem:hover {
+  color: #1ED760;
+  text-decoration: underline;
+
+}
+
+#card-text,
+label {
+  font-family: 'Oswald', sans-serif;
+  color: #1ED760;
+}
+
+#listimage {
+  border-radius: 30px;
+  box-shadow: 0 4px 4px 0 black, 0 4px 5px 0 black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.error {
+  font-size: 40px;
+
+}
+
+.error1 {
+  font-family: 'Oswald', sans-serif;
+}
+
+#name {
+  background-color: #212529;
+  color: #191414;
+  border-radius: 10px;
+  margin-right: 8px;
+  padding: 4px 4px;
+}
