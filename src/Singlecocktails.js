@@ -2,7 +2,9 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import Loading from './loading';
 import "./css.css"
+import {useGlobal} from "./context-api"
 function Singlecocktails() {
+  const value = useGlobal()
   const { id } = useParams()
   const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
   const [loading, setLoading] = useState(true);
@@ -72,7 +74,10 @@ function Singlecocktails() {
       <label><h1 id='center'>No Drinks Matched With Your Search!!</h1></label>
     )
   }
+
   const { name, image, type, glass, instructions, newIngredient } = cocktail
+  const id1= id
+  console.log(id1);
   return (
     <div className='container-fluid'>
       <div className='row'>
@@ -91,7 +96,7 @@ function Singlecocktails() {
               item ? <span key={index}><h3>{item}</h3></span> : null
             )
           })}
-
+          <button onClick={()=>value.addTocart(id1)}>Add to cart</button>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ const Contextapi = () => {
     const [loading, setLoading] = useState(true)
     const [searchitem, setSearchitem] = useState("a")
     const [cocktails, setCocktails] = useState([])
+    const [ addtocart, setAddtocart] = useState([])
     const fetchData = useCallback(async () => {
         try {
             setLoading(true)
@@ -31,9 +32,19 @@ const Contextapi = () => {
     useEffect(() => {
         fetchData()
     }, [searchitem, fetchData])
+    const addTocart = (id) =>{
+        if(addtocart.indexOf(id) !== -1){
+            setAddtocart([...addtocart])
+        } else{
+            setAddtocart([...addtocart,id])
+        }
+                
+            
+        
+    }
     return (
         <newData.Provider value={{
-            loading, setLoading, searchitem, setSearchitem, cocktails, setCocktails
+            loading, setLoading, searchitem, setSearchitem, cocktails, setCocktails,addTocart,addtocart
         }}>
             <App />
         </newData.Provider>
