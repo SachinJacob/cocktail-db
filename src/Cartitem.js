@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import Loading from './loading'
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io"
-const Cartitem = ({ item }) => {
+import { useGlobal } from './context-api'
+const Cartitem = ({ item ,setLoadingnew }) => {
+    const value = useGlobal()
     const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
     const [cocktailnew, setCocktailnew] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -19,10 +21,12 @@ const Cartitem = ({ item }) => {
                 }
                 setCocktailnew(newCocktail)
                 setLoading(false)
+                setLoadingnew(false)
             }
             else {
                 setCocktailnew(null)
                 setLoading(false)
+                setLoadingnew(false)
             }
         }
         catch (error) {
@@ -50,7 +54,7 @@ const Cartitem = ({ item }) => {
                         <div className="card-body">
                             <h5 className="card-title">{cocktailnew.name}</h5>
                             <p className="card-text">Price : { }</p>
-                            <button className="text-muted">remove</button>
+                            <button className="text-muted" onClick={() => value.removeId(item)}>remove</button>
                         </div>
                     </div>
                     <div className='col-3 '>

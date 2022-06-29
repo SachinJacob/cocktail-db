@@ -3,7 +3,7 @@ import { useGlobal } from "./context-api"
 import Cartitem from './Cartitem';
 function Cart() {
   const value = useGlobal()
-
+  const [loadingnew, setLoadingnew] = React.useState(true);
   if (value.addtocart.length === 0) {
     return (
       <div>
@@ -22,23 +22,25 @@ function Cart() {
             {
               value.addtocart.map((item) => {
                 return (
-                  <Cartitem key={item} item={item} />
+                  <Cartitem key={item} item={item} setLoadingnew={setLoadingnew}/>
                 )
               })}
             <hr />
           </div>
-          <div className='row d-flex justify-content-evenly'>
+          {!loadingnew &&  <div className='row d-flex justify-content-evenly'>
             <div className='col-4 d-flex justify-content-center'>
               <h2>TOTAL : </h2>
             </div>
             <div className='col-5 d-flex justify-content-center'>
               <h2>${ }</h2>
             </div>
-          </div>
+          </div>}
+          
         </div><br />
-        <div className='d-flex justify-content-center'>
-          <button type="button" className="btn btn-outline-danger" >CLEAR BAG</button>
-        </div>
+        {!loadingnew && <div className='d-flex justify-content-center'>
+          <button type="button" className="btn btn-outline-danger" onClick={() => value.setAddtocart([])}>CLEAR BAG</button>
+        </div>}
+        
         <br />
       </div>
 
