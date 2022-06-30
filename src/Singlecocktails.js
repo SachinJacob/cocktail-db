@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from './loading';
 import "./css.css"
-import {useGlobal} from "./context-api"
+import { useGlobal } from "./context-api"
 function Singlecocktails() {
   const value = useGlobal()
   const { id } = useParams()
@@ -10,7 +10,8 @@ function Singlecocktails() {
   const [loading, setLoading] = useState(true);
   const [cocktail, setCocktail] = useState(null);
   const [nodrinks, setNodrinks] = useState(false)
-  const [incart,setIncart] = useState(false)
+  const [incart, setIncart] = useState(false)
+  
   const fetchData = useCallback(async () => {
     try {
       const response = await fetch(`${url}${id}`)
@@ -75,15 +76,15 @@ function Singlecocktails() {
       <label><h1 id='center'>No Drinks Matched With Your Search!!</h1></label>
     )
   }
-  const id1= id
- 
-   
+  const id1 = id
+
+
   const { name, image, type, glass, instructions, newIngredient } = cocktail
   return (
     <div className='container-fluid'>
       <div className='row'>
         <div className='col-md-6 d-flex justify-content-center'>
-          <img src={image} width="350" height="350" id='listimage' />
+          <img src={image} width="350" height="350" id='listimage' alt='pic' />
         </div>
         <div className='col-md-6'>
           <br />
@@ -97,7 +98,11 @@ function Singlecocktails() {
               item ? <span key={index}><h3>{item}</h3></span> : null
             )
           })}
-          <button onClick={()=> incart ? "" : value.addTocart(id1)}>{incart ? "check cart" : "Add to cart"}</button>
+          {incart ?
+            <button ><Link to="/cart">check cart</Link></button>
+            :
+            <button onClick={() => value.addTocart(id1)}>Add to cart</button>
+          }
         </div>
       </div>
     </div>
