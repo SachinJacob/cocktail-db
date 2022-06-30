@@ -11,7 +11,20 @@ function Singlecocktails() {
   const [cocktail, setCocktail] = useState(null);
   const [nodrinks, setNodrinks] = useState(false)
   const [incart, setIncart] = useState(false)
-  
+
+  const inCart = (id) => {
+    const newValue = value.addtocart.map((item, index) => {
+      console.log(item);
+      
+    })
+  }
+
+
+  useEffect(() => {
+    inCart()
+  }, [value.incart])
+
+
   const fetchData = useCallback(async () => {
     try {
       const response = await fetch(`${url}${id}`)
@@ -51,9 +64,13 @@ function Singlecocktails() {
     }
   }, [id])
 
+
+
   useEffect(() => {
     fetchData()
   }, [id, fetchData])
+
+
 
   if (loading) {
     return (
@@ -64,6 +81,8 @@ function Singlecocktails() {
       </div>
     )
   }
+
+
 
   if (nodrinks) {
     return (
@@ -76,7 +95,7 @@ function Singlecocktails() {
       <label><h1 id='center'>No Drinks Matched With Your Search!!</h1></label>
     )
   }
-  const id1 = id
+
 
 
   const { name, image, type, glass, instructions, newIngredient } = cocktail
@@ -98,10 +117,10 @@ function Singlecocktails() {
               item ? <span key={index}><h3>{item}</h3></span> : null
             )
           })}
-          {incart ?
+          {value.incart ?
             <button ><Link to="/cart">check cart</Link></button>
             :
-            <button onClick={() => value.addTocart(id1)}>Add to cart</button>
+            <button onClick={() => {setIncart(true)}}>Add to cart</button>
           }
         </div>
       </div>

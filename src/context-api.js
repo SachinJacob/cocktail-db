@@ -7,6 +7,7 @@ const Contextapi = () => {
     const [searchitem, setSearchitem] = useState("a")
     const [cocktails, setCocktails] = useState([])
     const [addtocart, setAddtocart] = useState([])
+    
     const fetchData = useCallback(async () => {
         try {
             setLoading(true)
