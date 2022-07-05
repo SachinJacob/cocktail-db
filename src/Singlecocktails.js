@@ -120,7 +120,7 @@ function Singlecocktails() {
           {value.incart ?
             <button ><Link to="/cart">check cart</Link></button>
             :
-            <button onClick={() => {setIncart(true)}}>Add to cart</button>
+            <button onClick={() => {value.addTocart(id)}}>Add to cart</button>
           }
         </div>
       </div>
