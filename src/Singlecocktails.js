@@ -12,17 +12,29 @@ function Singlecocktails() {
   const [nodrinks, setNodrinks] = useState(false)
   const [incart, setIncart] = useState(false)
 
-  const inCart = (id) => {
-    const newValue = value.addtocart.map((item, index) => {
-      console.log(item);
-      
+
+  const inCart = () => {
+
+    const newValue = value.addtocart.map((item) => {
+      const nD = [...item]
+      const dD = nD.join("")
+      return dD
     })
+
+    if (newValue.indexOf(id) !== -1) {
+      setIncart(true)
+
+    } else {
+      setIncart(false)
+
+    }
+
   }
 
 
   useEffect(() => {
     inCart()
-  }, [value.incart])
+  }, [value])
 
 
   const fetchData = useCallback(async () => {
@@ -117,10 +129,11 @@ function Singlecocktails() {
               item ? <span key={index}><h3>{item}</h3></span> : null
             )
           })}
-          {value.incart ?
-            <button ><Link to="/cart">check cart</Link></button>
+          <br />
+          {incart ?
+            <button className="btn btn-outline-warning"><Link id='check_cart' to="/cart">Check Cart</Link></button>
             :
-            <button onClick={() => {value.addTocart(id)}}>Add to cart</button>
+            <button className="btn btn-outline-success" onClick={() => value.addTocart(id)}>Add to Cart</button>
           }
         </div>
       </div>
