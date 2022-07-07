@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react'
 import Loading from './loading'
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io"
 import { useGlobal } from './context-api'
-const Cartitem = ({ item ,setLoadingnew }) => {
+import { Link } from 'react-router-dom'
+const Cartitem = ({ item, setLoadingnew }) => {
     const value = useGlobal()
     const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i="
     const [cocktailnew, setCocktailnew] = useState(null);
@@ -48,7 +49,9 @@ const Cartitem = ({ item ,setLoadingnew }) => {
             <div className="col-md-6  mb-3" >
                 <div className="row">
                     <div className="col-4">
-                        <img src={cocktailnew.image} className="img-fluid rounded-start" alt="..." />
+                        <Link to={`/cocktails/${item}`}>
+                            <img src={cocktailnew.image} className="img-fluid rounded-start" alt="..." />
+                        </Link>
                     </div>
                     <div className="col-5">
                         <div className="card-body">

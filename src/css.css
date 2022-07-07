@@ -66,7 +66,8 @@ label {
   box-shadow: 0 4px 4px 0 black, 0 4px 5px 0 black;
 }
 
-a,#check_cart {
+a,
+#check_cart {
   text-decoration: none;
 }
 
@@ -85,4 +86,22 @@ a,#check_cart {
   border-radius: 10px;
   margin-right: 8px;
   padding: 4px 4px;
+}
+
+#sm {
+  display: none;
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  #sm {
+    display: block;
+    visibility: visible;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .big {
+    display: none;
+  }
 }

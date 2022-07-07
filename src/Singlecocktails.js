@@ -130,10 +130,19 @@ function Singlecocktails() {
             )
           })}
           <br />
+          <div className='big'>
+            {incart ?
+              <button className="btn btn-outline-warning"><Link id='check_cart' to="/cart">Check Cart</Link></button>
+              :
+              <button className="btn btn-outline-success" onClick={() => value.addTocart(id)}>Add to Cart</button>
+            }
+          </div>
+        </div>
+        <div className='bg-dark fixed-bottom d-flex justify-content-center' id='sm'>
           {incart ?
             <button className="btn btn-outline-warning"><Link id='check_cart' to="/cart">Check Cart</Link></button>
             :
-            <button className="btn btn-outline-success" onClick={() => value.addTocart(id)}>Add to Cart</button>
+            <button className="btn btn-outline-success" onClick={() => value.addTocart(id)}>Add to CarT</button>
           }
         </div>
       </div>
