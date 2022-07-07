@@ -30,9 +30,14 @@ const Contextapi = () => {
             console.log(error);
         }
     }, [searchitem])
+
+
     useEffect(() => {
         fetchData()
     }, [searchitem, fetchData])
+
+
+
     const addTocart = (id) => {
         if (addtocart.indexOf(id) !== -1) {
             setAddtocart([...addtocart])
@@ -40,6 +45,10 @@ const Contextapi = () => {
             setAddtocart([...addtocart, id])
         }
     }
+
+
+
+    
     const removeId = (item) => {
         const newData = addtocart.filter((data) => data !== item)
         setAddtocart(newData)
