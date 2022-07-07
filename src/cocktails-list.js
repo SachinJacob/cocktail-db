@@ -22,7 +22,7 @@ function Cocktailslist() {
             {d.cocktails.map((item) => {
                 const { id, name, image, type, glass } = item
                 return (
-                    <div className='col-md-4 d-flex justify-content-center' key={id}>
+                    <div className='col-lg-3 col-md-4 d-flex justify-content-center' key={id}>
                         <Link to={`cocktails/${id}`} >
                             <div className="card text-light" style={{ width: "300px", marginTop: "30px", backgroundColor: "#191414", borderRadius: "30px" }} >
                                 <img src={image} className="card-img-top" id='listimage' alt="..." />
